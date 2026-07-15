@@ -469,10 +469,12 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
 
 export function MobileAppNav() {
   const [open, setOpen] = useState(false);
+  const [trackOpen, setTrackOpen] = useState(false);
 
   return (
     <>
       <DigitalMenuModal open={open} onClose={() => setOpen(false)} />
+      <TrackingModal open={trackOpen} onClose={() => setTrackOpen(false)} />
 
       <nav
         className="fixed inset-x-0 bottom-0 z-[60] md:hidden"
