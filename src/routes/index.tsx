@@ -70,7 +70,7 @@ function StickyOrderBar() {
   }, []);
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 bottom-0 z-50 hidden transition-all duration-300 md:block ${
         visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
       }`}
       style={{
