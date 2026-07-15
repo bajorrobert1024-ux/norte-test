@@ -392,52 +392,6 @@ function About() {
   );
 }
 
-function Tracking() {
-  return (
-    <section id="pracenje" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-4xl px-4 text-center">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.4em] text-neon-pink">
-          Praćenje porudžbine
-        </p>
-        <h2 className="font-display text-4xl font-bold text-white sm:text-5xl">
-          Pratite <span className="neon-blue-text">uživo</span> u aplikaciji
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-text-secondary sm:text-base">
-          Porudžbinu pratite direktno u Wolt ili Glovo aplikaciji — tu vidite
-          tačno vreme dostave uživo.
-        </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a
-            href={WOLT_TRACK_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-all"
-            style={{
-              background: "var(--bg-secondary)",
-              color: "#00c2b0",
-              border: "1.5px solid #00c2b0",
-            }}
-          >
-            Prati porudžbinu na Wolt-u →
-          </a>
-          <a
-            href={GLOVO_TRACK_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-all"
-            style={{
-              background: "var(--bg-secondary)",
-              color: "#ffc244",
-              border: "1.5px solid #ffc244",
-            }}
-          >
-            Prati porudžbinu na Glovo-u →
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function Location() {
   return (
