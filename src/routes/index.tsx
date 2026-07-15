@@ -492,8 +492,8 @@ function Home() {
       <Hero />
       <Menu />
       <About />
-      <Tracking />
       <Location />
+
       <Footer />
       <StickyOrderBar />
       <MobileAppNav />
