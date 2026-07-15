@@ -8,9 +8,8 @@ import {
   sosevi,
   WOLT_RESTAURANT_URL,
   GLOVO_RESTAURANT_URL,
-  WOLT_TRACK_URL,
-  GLOVO_TRACK_URL,
 } from "@/data/menu";
+
 import { NorteLogo } from "@/components/norte/Logo";
 import { OrderButtons } from "@/components/norte/OrderButtons";
 import { CursorGlow } from "@/components/norte/CursorGlow";
