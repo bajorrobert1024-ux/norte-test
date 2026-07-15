@@ -28,11 +28,11 @@ export const Route = createFileRoute("/")({
         content:
           "NORTE Smash Burger, Kornelija Stankovića 11, Novi Sad. 100% junetina, hrskava slaninica, cheddar. Poruči preko Wolt-a ili Glovo-a.",
       },
-      { property: "og:title", content: "NORTE — Smash Burger Novi Sad" },
+      { property: "og:title", content: "NORTE — Smash Burger Novi Sad | Poruči preko Wolt & Glovo" },
       {
         property: "og:description",
         content:
-          "Jedini odgovor na glad. Poruči smash burger preko Wolt-a ili Glovo-a.",
+          "NORTE Smash Burger, Kornelija Stankovića 11, Novi Sad. 100% junetina, hrskava slaninica, cheddar. Poruči preko Wolt-a ili Glovo-a.",
       },
       { property: "og:type", content: "restaurant.restaurant" },
       { property: "og:image", content: heroAsset.url },

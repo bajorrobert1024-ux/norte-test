@@ -77,24 +77,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NORTE — Smash Burger Novi Sad" },
+      { title: "NORTE — Smash Burger Novi Sad | Poruči preko Wolt & Glovo" },
       {
         name: "description",
         content:
-          "NORTE Smash Burger, Novi Sad. Poruči preko Wolt-a ili Glovo-a.",
+          "NORTE Smash Burger, Kornelija Stankovića 11, Novi Sad. 100% junetina, hrskava slaninica, cheddar. Poruči preko Wolt-a ili Glovo-a.",
       },
       { name: "theme-color", content: "#0a0b14" },
-      { property: "og:title", content: "NORTE — Smash Burger Novi Sad" },
+      { property: "og:title", content: "NORTE — Smash Burger Novi Sad | Poruči preko Wolt & Glovo" },
       {
         property: "og:description",
-        content: "Jedini odgovor na glad. Tvoj savršeni smash burger.",
+        content: "NORTE Smash Burger, Kornelija Stankovića 11, Novi Sad. 100% junetina, hrskava slaninica, cheddar. Poruči preko Wolt-a ili Glovo-a.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "NORTE — Smash Burger Novi Sad | Poruči preko Wolt & Glovo" },
+      { name: "twitter:description", content: "NORTE Smash Burger, Kornelija Stankovića 11, Novi Sad. 100% junetina, hrskava slaninica, cheddar. Poruči preko Wolt-a ili Glovo-a." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/386b8981-b387-4fb2-9561-e63afba306a8/id-preview-80102cbd--9e848edb-0fe3-4462-ac87-eb906a91b0a4.lovable.app-1784128639897.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/386b8981-b387-4fb2-9561-e63afba306a8/id-preview-80102cbd--9e848edb-0fe3-4462-ac87-eb906a91b0a4.lovable.app-1784128639897.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
