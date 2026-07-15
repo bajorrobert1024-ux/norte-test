@@ -529,10 +529,11 @@ export function MobileAppNav() {
             icon={<IconTruck />}
           />
           <NavItem
-            label="Instagram"
-            href={INSTAGRAM_URL}
-            icon={<IconInstagram />}
+            label="Lokacija"
+            onClick={() => scrollToId("lokacija")}
+            icon={<IconMap />}
           />
+
 
         </div>
       </nav>
