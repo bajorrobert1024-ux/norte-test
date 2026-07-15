@@ -7,7 +7,9 @@ import {
   sosevi,
   WOLT_RESTAURANT_URL,
   GLOVO_RESTAURANT_URL,
-  INSTAGRAM_URL,
+} from "@/data/menu";
+void INSTAGRAM_placeholder;
+const INSTAGRAM_placeholder = null;
 } from "@/data/menu";
 
 function IconHome() {
