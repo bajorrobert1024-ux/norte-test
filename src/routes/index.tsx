@@ -15,6 +15,7 @@ import { NorteLogo } from "@/components/norte/Logo";
 import { OrderButtons } from "@/components/norte/OrderButtons";
 import { CursorGlow } from "@/components/norte/CursorGlow";
 import { BurgerCard } from "@/components/norte/BurgerCard";
+import { MobileAppNav } from "@/components/norte/MobileAppNav";
 import heroAsset from "@/assets/hero-truffle.jpg.asset.json";
 import smashBlueAsset from "@/assets/smash-blue.jpg.asset.json";
 import tripleDoubleAsset from "@/assets/triple-double.jpg.asset.json";
