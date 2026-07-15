@@ -542,6 +542,7 @@ function Home() {
       <Location />
       <Footer />
       <StickyOrderBar />
+      <MobileAppNav />
     </div>
   );
 }
