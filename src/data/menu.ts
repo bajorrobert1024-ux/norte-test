@@ -71,8 +71,8 @@ export const sosevi: string[] = [
 
 export const priceColumns = ["DOUBLE", "TRIPLE", "DOUBLE DOUBLE", "TRIPLE DOUBLE"] as const;
 
-// Placeholder external order URLs — replace with real restaurant links.
-export const WOLT_RESTAURANT_URL = "https://wolt.com/sr/srb/novi-sad";
-export const GLOVO_RESTAURANT_URL = "https://glovoapp.com/rs/sr/novi-sad/";
+export const WOLT_RESTAURANT_URL = "https://wolt.com/en/srb/novi_sad/restaurant/norte-smash";
+export const GLOVO_RESTAURANT_URL = "https://glovoapp.com/en/rs/novi-sad/stores/norte-street-food-qnd";
+export const INSTAGRAM_URL = "https://www.instagram.com/nortesmash/";
 export const WOLT_TRACK_URL = "https://wolt.com/me/orders";
 export const GLOVO_TRACK_URL = "https://glovoapp.com/rs/sr/orders/";
