@@ -476,7 +476,7 @@ export function MobileAppNav() {
       <TrackingModal open={trackOpen} onClose={() => setTrackOpen(false)} />
 
       <nav
-        className="fixed inset-x-0 bottom-0 z-[60] md:hidden"
+        className="fixed inset-x-0 bottom-0 z-[60] animate-nav-up nav-smooth md:hidden"
         style={{
           background: "rgba(10,11,20,0.92)",
           backdropFilter: "blur(14px)",
