@@ -8,6 +8,7 @@ import {
   sosevi,
   WOLT_RESTAURANT_URL,
   GLOVO_RESTAURANT_URL,
+  INSTAGRAM_URL,
 } from "@/data/menu";
 
 import { NorteLogo } from "@/components/norte/Logo";
@@ -465,7 +466,7 @@ function Footer() {
           </div>
         </div>
         <div className="flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-widest text-text-secondary">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer noopener" className="hover:text-white">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer noopener" className="hover:text-white">
             Instagram
           </a>
           <a href={WOLT_RESTAURANT_URL} target="_blank" rel="noreferrer noopener" className="hover:text-white">
