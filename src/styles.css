@@ -80,6 +80,7 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    -webkit-tap-highlight-color: transparent;
   }
   html,
   body {
@@ -91,6 +92,19 @@
   ::selection {
     background: var(--neon-pink);
     color: #fff;
+  }
+  button,
+  a[href],
+  [role="button"] {
+    transition: transform 150ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    touch-action: manipulation;
+  }
+  button:active,
+  a[href]:active,
+  [role="button"]:active {
+    transform: scale(0.95);
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
   }
 }
 
