@@ -120,7 +120,7 @@ function StickyOrderBar() {
 function Nav() {
   return (
     <header
-      className="sticky top-0 z-40 w-full"
+      className="sticky top-0 z-40 w-full animate-nav-down nav-smooth"
       style={{
         background: "rgba(10,11,20,0.72)",
         backdropFilter: "blur(10px)",
