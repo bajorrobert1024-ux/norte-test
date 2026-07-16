@@ -25,7 +25,7 @@ export function BurgerCard({ row }: { row: BurgerRow }) {
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      className="card-hover neon-border-blue rounded-2xl bg-bg-secondary p-5 sm:p-6"
+      className="card-hover tap-flash neon-border-blue rounded-2xl bg-bg-secondary p-5 sm:p-6"
       style={{ willChange: "transform" }}
     >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
