@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Splash } from "../components/norte/Splash";
+import { OfflineBanner } from "../components/norte/OfflineBanner";
 
 function NotFoundComponent() {
   return (
@@ -84,6 +86,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "NORTE Smash Burger, Kornelija Stankovića 11, Novi Sad. 100% junetina, hrskava slaninica, cheddar. Poruči preko Wolt-a ili Glovo-a.",
       },
       { name: "theme-color", content: "#0a0b14" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "apple-mobile-web-app-title", content: "NORTE" },
       { property: "og:title", content: "NORTE — Smash Burger Novi Sad | Poruči preko Wolt & Glovo" },
       {
         property: "og:description",
@@ -98,6 +104,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: "/icons/icon-192.png" },
+      { rel: "icon", type: "image/png", sizes: "512x512", href: "/icons/icon-512.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/icons/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
@@ -133,8 +143,14 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    void import("../lib/pwa").then((m) => m.registerPWA());
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
+      <Splash />
+      <OfflineBanner />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
