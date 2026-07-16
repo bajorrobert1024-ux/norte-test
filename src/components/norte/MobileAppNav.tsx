@@ -475,21 +475,9 @@ export function MobileAppNav() {
       <DigitalMenuModal open={open} onClose={() => setOpen(false)} />
       <TrackingModal open={trackOpen} onClose={() => setTrackOpen(false)} />
 
-      {/* Bottom filler to cover the gap under the raised nav */}
-      <div
-        className="fixed inset-x-0 z-[59] md:hidden"
-        style={{
-          bottom: 0,
-          height: "calc(env(safe-area-inset-bottom, 0px) + 14px)",
-          background: "#0A0B14",
-        }}
-        aria-hidden="true"
-      />
-
       <nav
-        className="fixed inset-x-0 z-[60] md:hidden"
+        className="fixed inset-x-0 bottom-0 z-[60] md:hidden"
         style={{
-          bottom: "calc(env(safe-area-inset-bottom, 0px) + 14px)",
           background: "rgba(10,11,20,0.92)",
           backdropFilter: "blur(14px)",
           borderTop: "1px solid rgba(255,62,142,0.25)",
@@ -497,7 +485,10 @@ export function MobileAppNav() {
         }}
         aria-label="Mobilna navigacija"
       >
-        <div className="relative mx-auto flex max-w-md items-end justify-between px-6 pb-0 pt-2">
+        <div
+          className="relative mx-auto flex max-w-md items-end justify-between px-6 pb-0 pt-2"
+          style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 14px)" }}
+        >
           <NavItem
             label="Početna"
             onClick={() => scrollToId("top")}
