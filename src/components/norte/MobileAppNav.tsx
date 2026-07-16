@@ -476,8 +476,9 @@ export function MobileAppNav() {
       <TrackingModal open={trackOpen} onClose={() => setTrackOpen(false)} />
 
       <nav
-        className="fixed inset-x-0 bottom-0 z-[60] md:hidden"
+        className="fixed inset-x-0 z-[60] md:hidden"
         style={{
+          bottom: "calc(env(safe-area-inset-bottom, 0px) + 14px)",
           paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 18px)",
           background: "rgba(10,11,20,0.92)",
           backdropFilter: "blur(14px)",
