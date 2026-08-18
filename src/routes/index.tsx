@@ -156,8 +156,8 @@ function Hero() {
         style={{
           backgroundImage: `url(${heroAsset.url})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
-          transform: `translateY(${scrollY * 0.25}px) scale(1.08)`,
+          backgroundPosition: "center 20%",
+          transform: `translateY(${scrollY * 0.25}px) scale(1.15)`,
           filter: "brightness(0.75)",
         }}
         aria-hidden
