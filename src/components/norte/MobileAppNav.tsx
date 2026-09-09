@@ -51,222 +51,6 @@ function IconBurger() {
     </svg>
   );
 }
-function IconTruck() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 7h11v9H3z" />
-      <path d="M14 10h4l3 3v3h-7" />
-      <circle cx="7" cy="18" r="2" />
-      <circle cx="17" cy="18" r="2" />
-    </svg>
-  );
-}
-
-function TrackingModal({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const [orderId, setOrderId] = useState("");
-  const [provider, setProvider] = useState<"wolt" | "glovo">("wolt");
-  const [status, setStatus] = useState<null | { title: string; step: number }>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
-    };
-  }, [open, onClose]);
-
-  if (!open) return null;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const trimmed = orderId.trim();
-    if (!trimmed) return;
-    // Simulated tracking status — real integration would query Wolt/Glovo APIs
-    const hash = Array.from(trimmed).reduce((a, c) => a + c.charCodeAt(0), 0);
-    const step = (hash % 4) + 1;
-    const titles = [
-      "Porudžbina primljena",
-      "Priprema u kuhinji",
-      "Kurir preuzima",
-      "Na putu ka tebi",
-    ];
-    setStatus({ title: titles[step - 1], step });
-  };
-
-  const steps = ["Primljeno", "Kuhinja", "Kurir", "Na putu"];
-
-  return (
-    <div
-      className="fixed inset-0 z-[70] flex flex-col"
-      style={{ background: "rgba(6,7,14,0.96)", backdropFilter: "blur(14px)" }}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Praćenje pošiljke"
-    >
-      <div
-        className="flex items-center justify-between px-4 py-4"
-        style={{ borderBottom: "1px solid rgba(47,111,255,0.3)" }}
-      >
-        <div>
-          <div className="text-[10px] font-semibold uppercase tracking-[0.35em] text-neon-pink">
-            Praćenje pošiljke
-          </div>
-          <div className="neon-blue-text font-display text-2xl font-bold tracking-wider">
-            GDE JE MOJ BURGER?
-          </div>
-        </div>
-        <button
-          onClick={onClose}
-          aria-label="Zatvori"
-          className="grid h-10 w-10 place-items-center rounded-full"
-          style={{ border: "1.5px solid rgba(255,255,255,0.2)", color: "white" }}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-            <path d="M6 6l12 12M18 6 6 18" />
-          </svg>
-        </button>
-      </div>
-
-      <div className="flex-1 overflow-y-auto px-4 py-6">
-        <div className="mx-auto max-w-md space-y-5">
-          <p className="text-sm leading-relaxed text-text-secondary">
-            Unesi broj porudžbine iz <span className="neon-pink-text font-bold">Wolt</span> ili{" "}
-            <span className="font-bold" style={{ color: "#ffc244" }}>Glovo</span> aplikacije da vidiš status dostave u realnom vremenu.
-          </p>
-
-          {/* Provider toggle */}
-          <div className="flex gap-2">
-            {(["wolt", "glovo"] as const).map((p) => (
-              <button
-                key={p}
-                type="button"
-                onClick={() => setProvider(p)}
-                className="flex-1 rounded-full py-2.5 text-xs font-bold uppercase tracking-widest transition"
-                style={
-                  provider === p
-                    ? {
-                        background: p === "wolt" ? "#00c2b0" : "#ffc244",
-                        color: "#0a0b14",
-                        boxShadow: `0 0 18px ${p === "wolt" ? "rgba(0,194,176,0.5)" : "rgba(255,194,68,0.5)"}`,
-                      }
-                    : {
-                        border: "1px solid rgba(255,255,255,0.15)",
-                        color: "rgba(255,255,255,0.7)",
-                      }
-                }
-              >
-                {p}
-              </button>
-            ))}
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <label className="block">
-              <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.3em] text-text-secondary">
-                Broj porudžbine
-              </span>
-              <input
-                inputMode="text"
-                autoComplete="off"
-                maxLength={40}
-                value={orderId}
-                onChange={(e) => setOrderId(e.target.value)}
-                placeholder="npr. NRT-8421 / #A9C2"
-                className="w-full rounded-xl bg-transparent px-4 py-3.5 font-display text-lg tracking-wider text-white placeholder:text-white/25 outline-none"
-                style={{
-                  border: "1.5px solid rgba(47,111,255,0.4)",
-                  boxShadow: "inset 0 0 20px rgba(47,111,255,0.08)",
-                }}
-              />
-            </label>
-            <button
-              type="submit"
-              disabled={!orderId.trim()}
-              className="w-full rounded-full py-3.5 text-sm font-bold uppercase tracking-widest disabled:opacity-40"
-              style={{
-                background:
-                  "radial-gradient(circle at 30% 30%, #ff6bb0 0%, #ff3e8e 55%, #c81f6a 100%)",
-                color: "#0a0b14",
-                boxShadow: "0 0 22px rgba(255,62,142,0.5)",
-              }}
-            >
-              Prati porudžbinu
-            </button>
-          </form>
-
-          {status && (
-            <div
-              className="rounded-2xl p-4"
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,62,142,0.3)",
-                boxShadow: "0 0 30px rgba(255,62,142,0.12)",
-              }}
-            >
-              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-text-secondary">
-                Status
-              </div>
-              <div className="neon-pink-text mt-1 font-display text-xl font-bold tracking-wider">
-                {status.title}
-              </div>
-              <div className="mt-4 space-y-2">
-                {steps.map((s, i) => {
-                  const active = i < status.step;
-                  const current = i === status.step - 1;
-                  return (
-                    <div key={s} className="flex items-center gap-3">
-                      <div
-                        className="grid h-7 w-7 place-items-center rounded-full text-[10px] font-bold"
-                        style={{
-                          background: active ? "var(--neon-pink)" : "rgba(255,255,255,0.06)",
-                          color: active ? "#0a0b14" : "rgba(255,255,255,0.4)",
-                          boxShadow: current ? "0 0 14px rgba(255,62,142,0.7)" : "none",
-                        }}
-                      >
-                        {i + 1}
-                      </div>
-                      <span
-                        className="text-sm font-semibold uppercase tracking-wider"
-                        style={{ color: active ? "white" : "rgba(255,255,255,0.4)" }}
-                      >
-                        {s}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-              <p className="mt-4 text-[11px] leading-snug text-text-secondary">
-                Za tačan status i lokaciju kurira otvori{" "}
-                <a
-                  href={provider === "wolt" ? WOLT_RESTAURANT_URL : GLOVO_RESTAURANT_URL}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="neon-blue-text font-bold underline"
-                >
-                  {provider === "wolt" ? "Wolt" : "Glovo"} aplikaciju
-                </a>
-                .
-              </p>
-            </div>
-          )}
-
-          <div
-            className="rounded-xl p-3 text-[11px] leading-snug text-text-secondary"
-            style={{ border: "1px dashed rgba(255,255,255,0.12)" }}
-          >
-            Nemaš broj porudžbine? Nađi ga u potvrdi e-maila ili u aplikaciji pod
-            "Moje porudžbine".
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function scrollToId(id: string) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -468,12 +252,10 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
 
 export function MobileAppNav() {
   const [open, setOpen] = useState(false);
-  const [trackOpen, setTrackOpen] = useState(false);
 
   return (
     <>
       <DigitalMenuModal open={open} onClose={() => setOpen(false)} />
-      <TrackingModal open={trackOpen} onClose={() => setTrackOpen(false)} />
 
       <nav
         className="fixed inset-x-0 bottom-0 z-[60] animate-nav-up nav-smooth md:hidden"
@@ -525,17 +307,10 @@ export function MobileAppNav() {
           </div>
 
           <NavItem
-            label="Praćenje"
-            onClick={() => setTrackOpen(true)}
-            icon={<IconTruck />}
-          />
-          <NavItem
             label="Lokacija"
             onClick={() => scrollToId("lokacija")}
             icon={<IconMap />}
           />
-
-
         </div>
       </nav>
     </>
