@@ -134,7 +134,6 @@ function Nav() {
         <nav className="hidden gap-6 text-xs font-semibold uppercase tracking-widest text-text-secondary md:flex">
           <a href="#meni" className="hover:text-white">Meni</a>
           <a href="#o-nama" className="hover:text-white">O nama</a>
-          <a href="#pracenje" className="hover:text-white">Praćenje</a>
           <a href="#lokacija" className="hover:text-white">Lokacija</a>
         </nav>
       </div>

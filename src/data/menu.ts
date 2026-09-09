@@ -39,7 +39,6 @@ export const burgers: BurgerRow[] = [
 
 export const snacks: Array<{ name: string; price: number }> = [
   { name: "CHEESE BALLS", price: 420 },
-  { name: "JALAPEÑO BALLS", price: 380 },
   { name: "ONION RINGS", price: 360 },
   { name: "MOZZARELA STICKS", price: 390 },
 ];
@@ -47,7 +46,7 @@ export const snacks: Array<{ name: string; price: number }> = [
 export const pomfriti: Array<{ name: string; price: string }> = [
   { name: "CLASSIC", price: "140 / 200" },
   { name: "CHEDDAR", price: "380" },
-  { name: "CHEDDAR BACON", price: "360" },
+  { name: "CHEDDAR BACON", price: "420" },
   { name: "TARTUF PARMEZAN", price: "390" },
 ];
 
