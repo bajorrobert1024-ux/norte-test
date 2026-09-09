@@ -307,17 +307,10 @@ export function MobileAppNav() {
           </div>
 
           <NavItem
-            label="Praćenje"
-            onClick={() => setTrackOpen(true)}
-            icon={<IconTruck />}
-          />
-          <NavItem
             label="Lokacija"
             onClick={() => scrollToId("lokacija")}
             icon={<IconMap />}
           />
-
-
         </div>
       </nav>
     </>
