@@ -8,6 +8,9 @@ import {
   WOLT_RESTAURANT_URL,
   GLOVO_RESTAURANT_URL,
 } from "@/data/menu";
+import type { BurgerRow } from "@/data/menu";
+import { BurgerPhotoDialog, burgerPhotoUrl } from "./BurgerPhotoDialog";
+import { Button } from "@/components/ui/button";
 
 function IconHome() {
   return (
@@ -57,9 +60,12 @@ function scrollToId(id: string) {
 }
 
 function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [selectedBurger, setSelectedBurger] = useState<BurgerRow | null>(null);
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !selectedBurger) onClose();
+    };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -67,17 +73,18 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
     };
-  }, [open, onClose]);
+  }, [open, onClose, selectedBurger]);
 
   if (!open) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[70] flex flex-col"
-      style={{ background: "rgba(6,7,14,0.96)", backdropFilter: "blur(14px)" }}
-      role="dialog"
-      aria-modal="true"
-    >
+    <>
+      <div
+        className="fixed inset-0 z-[70] flex flex-col"
+        style={{ background: "rgba(6,7,14,0.96)", backdropFilter: "blur(14px)" }}
+        role="dialog"
+        aria-modal="true"
+      >
       {/* Header */}
       <div
         className="flex items-center justify-between px-4 py-4"
@@ -91,7 +98,10 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
             NORTE
           </div>
         </div>
-        <button
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
           onClick={onClose}
           aria-label="Zatvori"
           className="grid h-10 w-10 place-items-center rounded-full"
@@ -100,7 +110,7 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
             <path d="M6 6l12 12M18 6 6 18" />
           </svg>
-        </button>
+        </Button>
       </div>
 
       {/* Scrollable content */}
@@ -112,7 +122,8 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
               🍔 BURGERI
             </h3>
             <div className="grid gap-2">
-              <div className="grid grid-cols-[1fr_repeat(4,minmax(0,52px))] gap-2 px-1 text-[9px] font-bold uppercase tracking-wider text-text-secondary">
+              <div className="grid grid-cols-[56px_1fr_repeat(4,minmax(0,42px))] gap-2 px-1 text-[9px] font-bold uppercase tracking-wider text-text-secondary">
+                <span></span>
                 <span></span>
                 <span className="text-right">D</span>
                 <span className="text-right">T</span>
@@ -128,7 +139,16 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
                     border: "1px solid rgba(47,111,255,0.25)",
                   }}
                 >
-                  <div className="grid grid-cols-[1fr_repeat(4,minmax(0,52px))] items-center gap-2">
+                  <div className="grid grid-cols-[56px_1fr_repeat(4,minmax(0,42px))] items-center gap-2">
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      onClick={() => setSelectedBurger(b)}
+                      aria-label={`Pogledaj fotografiju burgera ${b.name}`}
+                      className="relative h-12 w-14 overflow-hidden rounded-md border border-neon-pink/30 p-0"
+                    >
+                      <img src={burgerPhotoUrl} alt="" className="h-full w-full object-cover" />
+                    </Button>
                     <div className="min-w-0">
                       <div className="neon-blue-text truncate text-sm font-bold uppercase tracking-wider">
                         {b.name}
@@ -246,7 +266,9 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
           </a>
         </div>
       </div>
-    </div>
+      </div>
+      <BurgerPhotoDialog burger={selectedBurger} onClose={() => setSelectedBurger(null)} />
+    </>
   );
 }
 
@@ -284,7 +306,9 @@ export function MobileAppNav() {
 
           {/* Center order button */}
           <div className="flex w-16 justify-center">
-            <button
+            <Button
+              type="button"
+              variant="ghost"
               onClick={() => setOpen(true)}
               aria-label="Otvori meni za poručivanje"
               className="relative -mt-8 grid h-16 w-16 place-items-center rounded-full"
@@ -303,7 +327,7 @@ export function MobileAppNav() {
               >
                 Poruči
               </span>
-            </button>
+            </Button>
           </div>
 
           <NavItem
@@ -344,8 +368,8 @@ function NavItem({
     );
   }
   return (
-    <button onClick={onClick} className={cls}>
+    <Button type="button" variant="ghost" onClick={onClick} className={cls}>
       {content}
-    </button>
+    </Button>
   );
 }
