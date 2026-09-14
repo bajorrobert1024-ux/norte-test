@@ -63,7 +63,9 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
   const [selectedBurger, setSelectedBurger] = useState<BurgerRow | null>(null);
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !selectedBurger) onClose();
+    };
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -71,7 +73,7 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
     };
-  }, [open, onClose]);
+  }, [open, onClose, selectedBurger]);
 
   if (!open) return null;
 
@@ -120,7 +122,8 @@ function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => voi
               🍔 BURGERI
             </h3>
             <div className="grid gap-2">
-              <div className="grid grid-cols-[1fr_repeat(4,minmax(0,52px))] gap-2 px-1 text-[9px] font-bold uppercase tracking-wider text-text-secondary">
+              <div className="grid grid-cols-[56px_1fr_repeat(4,minmax(0,42px))] gap-2 px-1 text-[9px] font-bold uppercase tracking-wider text-text-secondary">
+                <span></span>
                 <span></span>
                 <span className="text-right">D</span>
                 <span className="text-right">T</span>
