@@ -456,7 +456,7 @@ function Location() {
 
 function Footer() {
   return (
-    <footer className="border-t border-white/5 py-10">
+    <footer className="border-t border-white/5 py-10 md:pb-24">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 md:flex-row md:items-center">
         <div className="space-y-2">
           <NorteLogo />
@@ -478,6 +478,13 @@ function Footer() {
         <div className="text-xs text-text-secondary">
           © {new Date().getFullYear()} NORTE. Sva prava zadržana.
         </div>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-6xl border-t border-white/5 px-4 pt-6 text-center">
+        <p className="text-xs tracking-widest text-text-secondary/70">
+          Napravljeno od strane{" "}
+          <span className="font-bold text-white">LYRA</span>
+        </p>
       </div>
     </footer>
   );
