@@ -16,7 +16,7 @@ import { OrderButtons } from "@/components/norte/OrderButtons";
 import { CursorGlow } from "@/components/norte/CursorGlow";
 import { BurgerCard } from "@/components/norte/BurgerCard";
 import { MobileAppNav } from "@/components/norte/MobileAppNav";
-import heroAsset from "@/assets/hero-truffle.jpg.asset.json";
+import heroAsset from "@/assets/hero-clean.jpg.asset.json";
 import smashBlueAsset from "@/assets/smash-blue.jpg.asset.json";
 import tripleDoubleAsset from "@/assets/triple-double.jpg.asset.json";
 
@@ -155,8 +155,8 @@ function Hero() {
         style={{
           backgroundImage: `url(${heroAsset.url})`,
           backgroundSize: "cover",
-          backgroundPosition: "center 0%",
-          transform: `translateY(${scrollY * 0.25}px) scale(1.35)`,
+          backgroundPosition: "center 42%",
+          transform: `translateY(${scrollY * 0.25}px) scale(1.08)`,
           filter: "brightness(0.75)",
         }}
         aria-hidden
