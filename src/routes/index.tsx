@@ -407,7 +407,7 @@ function Location() {
         <div className="grid gap-6 md:grid-cols-[1fr_1.2fr]">
           <div className="neon-border-blue rounded-2xl bg-bg-secondary/60 p-6">
             <h3 className="font-display text-2xl font-bold text-white">
-              NORTE Smash Burger
+              Smash Burgers Norte
             </h3>
             <div className="mt-5 space-y-4 text-sm">
               <div>
