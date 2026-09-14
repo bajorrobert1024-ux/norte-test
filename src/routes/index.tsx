@@ -480,7 +480,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-8 max-w-6xl px-4 pt-6 text-center">
+      <div className="mx-auto mt-6 max-w-6xl px-4 text-left">
         <p className="text-xs tracking-widest text-text-secondary/70">
           Napravljeno od strane{" "}
           <span className="font-bold text-white">LYRA</span>
