@@ -456,7 +456,7 @@ function Location() {
 
 function Footer() {
   return (
-    <footer className="border-t border-white/5 py-10 md:pb-24">
+    <footer className="border-t border-white/5 py-10 pb-32 md:pb-24">
       <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-4 md:flex-row md:items-center">
         <div className="space-y-2">
           <NorteLogo />
