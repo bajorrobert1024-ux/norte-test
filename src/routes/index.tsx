@@ -17,7 +17,7 @@ import { CursorGlow } from "@/components/norte/CursorGlow";
 import { BurgerCard } from "@/components/norte/BurgerCard";
 import { MobileAppNav } from "@/components/norte/MobileAppNav";
 import heroAsset from "@/assets/hero-clean.jpg.asset.json";
-import smashBlueAsset from "@/assets/smash-blue.jpg.asset.json";
+import norteNewBurgerAsset from "@/assets/norte-new-burger.png.asset.json";
 import tripleDoubleAsset from "@/assets/triple-double.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -205,10 +205,9 @@ function MenuTitle() {
       <h2
         className={`font-display text-6xl font-bold tracking-[0.15em] sm:text-7xl md:text-8xl ${inView ? "animate-neon-flicker" : "opacity-0"}`}
         style={{
-          color: "transparent",
-          WebkitTextStroke: "1.5px var(--neon-blue)",
+          color: "var(--neon-blue)",
           textShadow:
-            "0 0 12px rgba(47,111,255,0.7), 0 0 40px rgba(47,111,255,0.4)",
+            "0 0 2px rgba(10,11,20,0.9), 0 0 6px rgba(10,11,20,0.9), 0 0 18px rgba(47,111,255,0.55)",
         }}
       >
         MENI
@@ -381,7 +380,7 @@ function About() {
         </div>
         <div className="neon-border-blue overflow-hidden rounded-2xl">
           <img
-            src={smashBlueAsset.url}
+            src={norteNewBurgerAsset.url}
             alt="NORTE smash burger"
             className="h-full w-full object-cover"
           />
