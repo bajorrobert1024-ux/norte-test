@@ -463,14 +463,14 @@ function Footer() {
             Kornelija Stankovića 11, Novi Sad · 069 162 90 63
           </div>
         </div>
-        <div className="flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-widest text-text-secondary">
-          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer noopener" className="hover:text-white">
+        <div className="flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-widest text-neon-pink">
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer noopener" className="transition-colors hover:text-white">
             Instagram
           </a>
-          <a href={WOLT_RESTAURANT_URL} target="_blank" rel="noreferrer noopener" className="hover:text-white">
+          <a href={WOLT_RESTAURANT_URL} target="_blank" rel="noreferrer noopener" className="transition-colors hover:text-white">
             Wolt
           </a>
-          <a href={GLOVO_RESTAURANT_URL} target="_blank" rel="noreferrer noopener" className="hover:text-white">
+          <a href={GLOVO_RESTAURANT_URL} target="_blank" rel="noreferrer noopener" className="transition-colors hover:text-white">
             Glovo
           </a>
         </div>
