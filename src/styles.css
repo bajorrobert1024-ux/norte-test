@@ -4,7 +4,7 @@
 
 /* ------- Heading edge ------- */
 h1, h2, h3, h4, h5, h6 {
-  -webkit-text-stroke: 1px #0a0914;
+  -webkit-text-stroke: 3px #0a0914;
   paint-order: stroke fill;
 }
 
