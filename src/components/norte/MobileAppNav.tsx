@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { smoothScrollToId } from "@/lib/smooth-scroll";
 import {
   burgers,
   snacks,
@@ -55,8 +56,7 @@ function IconBurger() {
   );
 }
 function scrollToId(id: string) {
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  smoothScrollToId(id);
 }
 
 function DigitalMenuModal({ open, onClose }: { open: boolean; onClose: () => void }) {

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { smoothScrollToId } from "@/lib/smooth-scroll";
 import {
   burgers,
   snacks,
@@ -118,6 +119,10 @@ function StickyOrderBar() {
 }
 
 function Nav() {
+  const go = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    smoothScrollToId(id);
+  };
   return (
     <header
       className="sticky top-0 z-40 w-full animate-nav-down nav-smooth"
@@ -128,13 +133,13 @@ function Nav() {
       }}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#top" className="animate-float-slow">
+        <a href="#top" onClick={go("top")} className="animate-float-slow">
           <NorteLogo />
         </a>
         <nav className="hidden gap-6 text-xs font-semibold uppercase tracking-widest text-text-secondary md:flex">
-          <a href="#meni" className="hover:text-white">Meni</a>
-          <a href="#o-nama" className="hover:text-white">O nama</a>
-          <a href="#lokacija" className="hover:text-white">Lokacija</a>
+          <a href="#meni" onClick={go("meni")} className="hover:text-white">Meni</a>
+          <a href="#o-nama" onClick={go("o-nama")} className="hover:text-white">O nama</a>
+          <a href="#lokacija" onClick={go("lokacija")} className="hover:text-white">Lokacija</a>
         </nav>
       </div>
     </header>
