@@ -441,7 +441,7 @@ function Location() {
           <div className="neon-border-pink overflow-hidden rounded-2xl">
             <iframe
               title="NORTE lokacija"
-              src="https://www.google.com/maps?q=Kornelija+Stankovi%C4%87a+11,+Novi+Sad&output=embed"
+              src="https://maps.google.com/maps?q=NORTE+SMASH+BURGER&ll=45.2631573,19.8158853&z=18&hl=sr&output=embed"
               className="h-full min-h-[340px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
