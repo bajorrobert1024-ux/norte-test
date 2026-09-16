@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { smoothScrollToId } from "@/lib/smooth-scroll";
 import {
   burgers,
   snacks,
